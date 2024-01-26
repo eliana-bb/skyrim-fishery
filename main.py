@@ -1,4 +1,5 @@
 from fishing_rod import ROD_ALIKRI, ROD_ARGONIAN, ROD_DEFAULT, ROD_DWARVEN
+from biome import *
 from typing import Union
 
 
