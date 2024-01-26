@@ -40,8 +40,28 @@ def merge_tables(table_1: dict[str, Union[float, int]], chance_1: int, table_2: 
 
 
 def main():
-    rod_names = ["Fishing Rod"]
-    print(fish(True, True, Rods[0], Biomes[0]))
+    rod_names = ["Fishing Rod", "Alik'ri Rod", "Argonian Rod", "Dwarven Rod"]
+    biome_names = ["Arctic", "Underground", "Lakes, Clear", "Lakes, Raining", "Streams, Clear", "Streams, Raining"]
+    populations = {True: "High Population", False: "Low Population"}
+    times = {True: "Peak Hours", False: "Normal Hours"}
+    best_places: dict[str, tuple[float, tuple[str, str, str, str]]] = {}
+    for rod_id, rod_name in enumerate(rod_names):
+        for biome_id, biome_name in enumerate(biome_names):
+            for high_pop, pop_name in populations.items():
+                for peak_time, time_name in times.items():
+                    fish_result = fish(peak_time, high_pop, biome=Biomes[biome_id], rod=Rods[rod_id])
+                    for fish_name, fish_chance in fish_result.items():
+                        if fish_name not in best_places:
+                            best_places[fish_name] = (0.0, ("", "", "", ""))
+                        if fish_chance >= best_places[fish_name][0]:
+                            best_places[fish_name] = (fish_chance, (rod_name, biome_name, pop_name, time_name))
+    for fish_name, result_tuple in best_places.items():
+        print(fish_name, end="\t")
+        print(f"{result_tuple[0]:0.1f}%", end="\t")
+        print(result_tuple[1][0], end="\t")
+        print(result_tuple[1][1], end="\t")
+        print(result_tuple[1][2], end="\t")
+        print(result_tuple[1][3])
 
 
 if __name__ == "__main__":
