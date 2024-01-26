@@ -58,3 +58,4 @@ BIOME_STREAM_RAIN = Biome(
     rare_fish_small=["Lyretail Anthias"],
     rare_fish_large=["Rare Junk"]
 )
+Biomes = [BIOME_FREEZING, BIOME_UNDERGROUND, BIOME_LAKE_CLEAR, BIOME_LAKE_RAIN, BIOME_STREAM_CLEAR, BIOME_STREAM_RAIN]

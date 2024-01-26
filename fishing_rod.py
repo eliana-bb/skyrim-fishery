@@ -35,3 +35,5 @@ ROD_ALIKRI = Rod(fish_rarity_default=(55, 35), fish_rarity_peak=(45, 40), small_
 ROD_ARGONIAN = Rod(fish_rarity_default=(55, 35), fish_rarity_peak=(45, 40), small_fish_rate=20,
                    allowed_rares=["Angler", "Scorpion Fish"])
 ROD_DWARVEN = Rod(fish_rate=(60, 20), junk_rarity=(35, 56))
+
+Rods = [ROD_DEFAULT, ROD_ALIKRI, ROD_ARGONIAN, ROD_DWARVEN]
